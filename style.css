@@ -1,3 +1,9 @@
+:root {
+  --dark-color: #333333;
+  --yellow-color: #f7f235;
+  --light-color: white;
+}
+
 body {
   margin: 0px;
   font-family: "Roboto", sans-serif;
@@ -5,6 +11,7 @@ body {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 #header {
@@ -13,14 +20,10 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  border: 1px solid;
+  background-color: var(--yellow-color);
+  color: var(--dark-color);
 
   width: 100%;
-}
-
-.cb-title {
-  font-feature-settings: "smcp" on;
 }
 
 #content {
@@ -38,7 +41,10 @@ a {
   width: 45vmin;
   height: 75vmin;
 
-  background-color: lightgray;
+  background-color: var(--light-color);
   border-radius: 1rem;
   margin: 0.5rem;
+}
+
+.article p {
 }
