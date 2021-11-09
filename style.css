@@ -22,7 +22,7 @@ a {
   align-items: center;
   background-color: var(--yellow-color);
   color: var(--dark-color);
-
+  z-index: 99;
   width: 100%;
 }
 
@@ -36,24 +36,25 @@ a {
 .article {
   width: 45vmin;
   height: 75vmin;
-  displayborder-radius: 1rem;
+  border-radius: 1rem;
   margin: 0.5rem;
-  border: 1px solid;
+  position: relative;
 }
 
 .title {
-  height: 100%;
-  width: 100%;
-  background-color: #00000033;
-  position: relative;
-  top: -45vmin;
   display: flex;
   justify-content: start;
-  align-items: flex-end;
+  align-items: end;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  color: white;
 }
 
 .title p {
-  color: black;
+  color: white;
   margin-bottom: 2.5vmin;
   margin-left: 1vmin;
   font-size: 1.25em;
@@ -63,8 +64,13 @@ a {
   z-index: -99;
   overflow: hidden;
   position: relative;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 1rem;
+}
+
+.article img {
+  height: 75vmin;
 }
