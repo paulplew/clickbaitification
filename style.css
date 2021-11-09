@@ -1,7 +1,7 @@
 :root {
   --dark-color: #333333;
   --yellow-color: #f7f235;
-  --light-color: white;
+  --light-color: #efefef;
 }
 
 body {
@@ -35,16 +35,24 @@ a {
 
 .article {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: flex-end;
 
   width: 45vmin;
   height: 75vmin;
 
-  background-color: var(--light-color);
+  background-color: var(--dark-color);
   border-radius: 1rem;
   margin: 0.5rem;
 }
 
 .article p {
+  color: white;
+  margin-bottom: 2.5vmin;
+  margin-left: 1vmin;
+  font-size: 1.25em;
+}
+
+.background-image {
+  z-index: -1;
 }
