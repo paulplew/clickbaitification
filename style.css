@@ -1,8 +1,26 @@
+body {
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
 #header {
-    display: flex;
+  position: sticky;
+  top: 0px;
+  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightgray;
+  background-color: white;
+  border: 1px solid;
+
+  width: 100%;
+}
+
+.cb-title {
+  font-feature-settings: "smcp" on;
 }
 
 #content {
@@ -19,9 +37,8 @@
 
   width: 45vmin;
   height: 75vmin;
-  
+
   background-color: lightgray;
-  border: 1px solid;
-  border-radius: 10px;
-  margin: 10px;
+  border-radius: 1rem;
+  margin: 0.5rem;
 }
