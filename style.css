@@ -41,7 +41,6 @@ a {
   width: 45vmin;
   height: 75vmin;
 
-  background-color: var(--dark-color);
   border-radius: 1rem;
   margin: 0.5rem;
 }
@@ -53,6 +52,8 @@ a {
   font-size: 1.25em;
 }
 
-.background-image {
-  z-index: -1;
+.image-container {
+  z-index: -99;
+  overflow: hidden;
+  position: relative;
 }
