@@ -34,19 +34,26 @@ a {
 }
 
 .article {
+  width: 45vmin;
+  height: 75vmin;
+  displayborder-radius: 1rem;
+  margin: 0.5rem;
+  border: 1px solid;
+}
+
+.title {
+  height: 100%;
+  width: 100%;
+  background-color: #00000033;
+  position: relative;
+  top: -45vmin;
   display: flex;
   justify-content: start;
   align-items: flex-end;
-
-  width: 45vmin;
-  height: 75vmin;
-
-  border-radius: 1rem;
-  margin: 0.5rem;
 }
 
-.article p {
-  color: white;
+.title p {
+  color: black;
   margin-bottom: 2.5vmin;
   margin-left: 1vmin;
   font-size: 1.25em;
@@ -56,4 +63,8 @@ a {
   z-index: -99;
   overflow: hidden;
   position: relative;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
