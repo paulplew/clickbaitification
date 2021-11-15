@@ -16,21 +16,44 @@ a {
   color: var(--dark-color);
 }
 
+h1 {
+  margin: 10px;
+}
+
+p {
+  margin: 10px;
+}
+
 a:hover {
   color: var(--highlight-color);
 }
 
+.cb-title {
+  font-size: 2rem;
+  display: block;
+  width: 100%;
+}
+
+.navbar-shrunk .cb-title {
+  font-size: 1.2rem;
+  display: inline;
+  width: unset;
+}
+
 .navbar-fixed-top {
+  display: flex;
+  align-items: center;
+
   padding: 10px;
   background-color: var(--light-color);
   position: sticky;
   z-index: 99;
-  height: 120px;
+  height: 90px;
   overflow: hidden;
 }
 
-.navbar-shrunk {
-  
+.navbar-fixed-top.navbar-shrunk {
+  height: 15px;
 }
 
 .nav-link {
