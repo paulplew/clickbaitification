@@ -29,7 +29,7 @@ const createArticle = (
   imageContainer.appendChild(image);
 
   const title = document.createElement("p");
-  title.innerText = article.title;
+  title.innerHTML = article.title;
 
   const titleContainer = document.createElement("div");
   titleContainer.classList.add("title");
