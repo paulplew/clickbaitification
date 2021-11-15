@@ -12,7 +12,7 @@ html {
 }
 
 a {
-  text-decoration: none;
+
   color: var(--dark-color);
 }
 
@@ -34,30 +34,28 @@ a:hover {
   width: 100%;
 }
 
-.navbar-shrunk .cb-title {
-  font-size: 1.2rem;
-  display: inline;
-  width: unset;
-}
-
 .navbar-fixed-top {
-  display: flex;
-  align-items: center;
-
+  position: relative;
+  height: 90px;
+  
   padding: 10px;
   background-color: var(--light-color);
   position: sticky;
   z-index: 99;
-  height: 90px;
   overflow: hidden;
 }
 
-.navbar-fixed-top.navbar-shrunk {
-  height: 15px;
+.navbar-content {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .nav-link {
   padding: 10px;
+    text-decoration: none;
 }
 
 .nav-link.selected {
@@ -113,4 +111,8 @@ a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.highlight { 
+  color: var(--highlight);
 }
