@@ -11,6 +11,7 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
+
 a {
 
   color: var(--dark-color);
@@ -18,6 +19,8 @@ a {
 
 h1 {
   margin: 10px;
+  font-size: 2rem;
+  font-weight: 400;
 }
 
 p {
@@ -29,7 +32,7 @@ a:hover {
 }
 
 .cb-title {
-  font-size: 2rem;
+  font-size: 2rem !important;
   display: block;
   width: 100%;
 }
@@ -114,5 +117,5 @@ a:hover {
 }
 
 .highlight { 
-  color: var(--highlight);
+  color: var(--highlight-color);
 }
