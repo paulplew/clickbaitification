@@ -8,32 +8,45 @@ const fetchFile = async filePath => {
   }
 };
 
-const createArticle = jsonArticle => {
+const createArticle = (
+  article = {
+    title: "Avoid this one simple thing to completely cure your anxiety",
+    image: {
+      src:
+        "https://cdn.glitch.me/07486811-aee1-45d8-b7a9-be44fb8b03cc%2F0bb73b8a8afc4403b0bc6f24412d4569.png?v=1637007533486",
+      alt: "A carefree person with no anxiety"
+    },
+    link:
+      "https://www.healthyplace.com/blogs/survivingmentalhealthstigma/2017/09/clickbait-contributes-to-mental-health-stigma"
+  }
+) => {
   const image = document.createElement("img");
-  image.src = jsonArticle.url;
+  image.src = article.image.src;
+  image.alt = article.image.alt;
 
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("image-container");
   imageContainer.appendChild(image);
 
   const title = document.createElement("p");
-  title.innerText = jsonArticle.title;
+  title.innerText = article.title;
 
   const titleContainer = document.createElement("div");
   titleContainer.classList.add("title");
   titleContainer.appendChild(title);
 
-  const article = document.createElement("a");
-  article.classList.add("article");
-  article.href = jsonArticle.href;
-  article.appendChild(imageContainer);
-  article.appendChild(titleContainer);
+  const link = document.createElement("a");
+  link.classList.add("article");
+  link.href = article.link;
+  link.target = "_blank";
+  link.appendChild(imageContainer);
+  link.appendChild(titleContainer);
 
-  document.querySelector("#content").appendChild(article);
+  document.querySelector("#content").appendChild(link);
 };
 
 fetchFile("./articles.json").then(articles => {
   articles.map(element => {
-    createArticle(element);
+    createArticle(undefined);
   });
 });
