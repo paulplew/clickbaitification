@@ -46,7 +46,7 @@ const createArticle = (
 };
 
 fetchFile("./articles.json").then(articles => {
-  articles.map(element => {
-    createArticle(undefined);
+  articles.map(article => {
+    createArticle(article);
   });
 });
