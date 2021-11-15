@@ -42,13 +42,13 @@ const createArticle = (
   link.appendChild(imageContainer);
   link.appendChild(titleContainer);
 
-  document.querySelector("#content").appendChild(link);
+  return link;
 };
 
 const setupArticles = () => {
   fetchFile("./articles.json").then(articles => {
     articles.map(article => {
-      createArticle(article);
+      document.querySelector("#content").appendChild(createArticle(article));
     });
   });
 };
