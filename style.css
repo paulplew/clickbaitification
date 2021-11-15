@@ -1,7 +1,8 @@
-x:root {
+:root {
   --dark-color: #333333;
   --yellow-color: #f7f235;
   --light-color: #efefef;
+  --shadow-color: #000000;
 }
 
 body {
@@ -36,7 +37,7 @@ a {
 .article {
   width: 45vmin;
   height: 75vmin;
-  border-radius: 1rem;
+  border-radius: 1em;
   margin: 0.5rem;
   position: relative;
 }
@@ -57,7 +58,8 @@ a {
   color: white;
   margin-bottom: 2.5vmin;
   margin-left: 1vmin;
-  font-size: 1.25em;
+  font-size: 2.5vmax;
+  text-shadow: 2px 2px 8px var(--shadow-color);
 }
 
 .image-container {
@@ -66,8 +68,7 @@ a {
   position: relative;
   height: 100%;
   width: 100%;
-
-  border-radius: 1rem;
+  border-radius: 1em;
 }
 
 .article img {

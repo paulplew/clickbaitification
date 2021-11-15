@@ -45,8 +45,10 @@ const createArticle = (
   document.querySelector("#content").appendChild(link);
 };
 
-fetchFile("./articles.json").then(articles => {
-  articles.map(article => {
-    createArticle(article);
+const setupArticles = () => {
+  fetchFile("./articles.json").then(articles => {
+    articles.map(article => {
+      createArticle(article);
+    });
   });
-});
+};
