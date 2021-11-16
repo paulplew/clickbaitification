@@ -1,4 +1,5 @@
-const fetchFile = async filePath => {
+// used to fetch files, returns the JSON inside them
+const jsonFetchFile = async filePath => {
   try {
     const response = await fetch(filePath);
     const json = await response.json();
@@ -8,6 +9,8 @@ const fetchFile = async filePath => {
   }
 };
 
+// creates an article in the 'snapchat' style
+// call with no arguments and append to document.body for an example
 const createArticle = (
   article = {
     title: "Avoid this one simple thing to completely cure your anxiety",
@@ -20,6 +23,13 @@ const createArticle = (
       "https://www.healthyplace.com/blogs/survivingmentalhealthstigma/2017/09/clickbait-contributes-to-mental-health-stigma"
   }
 ) => {
+  /* DOM TREE
+  div.article
+    div.image-container
+      img.
+    div.title
+      p
+    
   const image = document.createElement("img");
   image.src = article.image.src;
   image.alt = article.image.alt;
@@ -46,23 +56,31 @@ const createArticle = (
   return link;
 };
 
+/*
+  call after page load to setup the articles in the /articles.json file
+  waits for the JSON promise to be resolved
+
+  see articles.json for the JSON format.
+*/
 const setupArticles = () => {
-  fetchFile("./articles.json").then(articles => {
+  jsonFetchFile("./articles.json").then(articles => {
     articles.map(article => {
       document.querySelector("#content").appendChild(createArticle(article));
     });
   });
 };
 
+// creates a video popup when added as an onClick
+// the clicked object should have a data-video tag defined
 const videoPopup = clicked => {
   const fade = document.createElement("div");
   fade.classList.add("hover-top", "transparent-gray", "center");
-  fade.setAttribute('id', 'filter')
+  fade.setAttribute("id", "filter");
+
+  // when user clicks anywhere not in the iframe remove the element
   fade.onclick = removeSelf;
-  
-  fade.appendChild(document.createElement('p').innerText = "click anywhere or press 'esc' to exit")
-  
-  fade.innerHTML = `
+
+  fade.innerHTML += `
     <iframe
       width="560"
       height="315"
@@ -73,16 +91,20 @@ const videoPopup = clicked => {
   document.body.appendChild(fade);
 };
 
-document.onkeyup = (e) => {
-  if (e.keyCode === 27) {
-    if (document.getElementById('filter')) {
-      console.log('removing');
-      document.getElementById('filter').remove();
-    }
-  }
-}
-
+// removes an element when added as an onClick
 const removeSelf = clicked => {
   clicked.target.remove();
-}
+};
 
+// key handler for all key press events
+document.onkeyup = e => {
+  // if the escape key is pressed
+  if (e.keyCode === 27) {
+    const filter = document.getElementById("filter");
+
+    // remove filter when it exists
+    if (filter) {
+      filter.remove();
+    }
+  }
+};
