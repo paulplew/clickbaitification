@@ -149,3 +149,20 @@ a:hover {
 .transparent-gray {
   background-color: #333333dd;
 }
+
+.flex-column {
+  flex-direction: column;
+}
+
+.box {
+  width: auto;
+  height: 25px;
+}
+
+.padding-10 {
+  padding: 10px;
+}
+
+.main-color {
+  background-color: var(--highlight-color);
+}

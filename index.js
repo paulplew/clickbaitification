@@ -19,7 +19,8 @@ const createArticle = (
         "https://cdn.glitch.me/07486811-aee1-45d8-b7a9-be44fb8b03cc%2F0bb73b8a8afc4403b0bc6f24412d4569.png?v=1637007533486",
       alt: "A carefree person with no anxiety"
     },
-    video:
+    video: "https://youtube.com/embed/ofu0Sqw3pCU",
+    article:
       "https://www.healthyplace.com/blogs/survivingmentalhealthstigma/2017/09/clickbait-contributes-to-mental-health-stigma"
   }
 ) => {
@@ -47,7 +48,9 @@ const createArticle = (
   const titleContainer = document.createElement("div");
   titleContainer.classList.add("title");
   titleContainer.appendChild(title);
+
   titleContainer.dataset.video = article.video;
+  titleContainer.dataset.article = article.article;
   titleContainer.onclick = videoPopup;
 
   const link = document.createElement("div");
@@ -76,21 +79,38 @@ const setupArticles = () => {
 // creates a video popup when added as an onClick
 // the clicked object should have a data-video tag defined
 const videoPopup = clicked => {
+  /* DOM TREE
+  div.hover-top.transparent-gray.center#filter
+  │
+  ├── iframe
+  │  
+  └── a.box.padding-10.main-color
+  */
   const fade = document.createElement("div");
-  fade.classList.add("hover-top", "transparent-gray", "center");
+  fade.classList.add("hover-top", "transparent-gray", "center", "flex-column");
   fade.setAttribute("id", "filter");
 
   // when user clicks anywhere not in the iframe remove the element
   fade.onclick = removeSelf;
 
-  fade.innerHTML += `
+  fade.innerHTML = `
     <iframe
       width="560"
       height="315"
       src="${clicked.target.dataset.video}"
-    ></iframe>
+      title="YouTube video player" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
   `;
 
+  const linkToArticle = document.createElement("a");
+  linkToArticle.classList.add("box", "padding-10", "main-color");
+  linkToArticle.href = clicked.target.dataset.article;
+  linkToArticle.target = "_blank";
+  linkToArticle.innerText = "Read Article";
+  
   document.body.appendChild(fade);
 };
 
