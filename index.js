@@ -52,3 +52,12 @@ const setupArticles = () => {
     });
   });
 };
+
+const videoPopup = () => {
+  const fade = document.createElement('div');
+  fade.classList.add('hover-top', 'transparent-gray')
+  
+  document.body.appendChild(fade);
+}
+
+videoPopup();

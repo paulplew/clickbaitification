@@ -39,7 +39,6 @@ a:hover {
   width: 100%;
   
   font-style: italic;
-  font-weight: 1000;
 }
 
 .navbar-fixed-top {
@@ -135,4 +134,15 @@ a:hover {
 
 .italic { 
   font-style: italic;
+}
+
+.hover-top {
+  position: absoulute;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.transparent-gray {
+  background-color: #333333dd;
 }
