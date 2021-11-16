@@ -25,11 +25,14 @@ const createArticle = (
 ) => {
   /* DOM TREE
   div.article
-    div.image-container
-      img.
-    div.title
-      p
-    
+  │
+  ├── div.image-container
+  │   └── img
+  │  
+  └── div.title
+      └── p
+  */
+
   const image = document.createElement("img");
   image.src = article.image.src;
   image.alt = article.image.alt;
