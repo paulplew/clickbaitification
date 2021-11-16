@@ -16,7 +16,7 @@ const createArticle = (
         "https://cdn.glitch.me/07486811-aee1-45d8-b7a9-be44fb8b03cc%2F0bb73b8a8afc4403b0bc6f24412d4569.png?v=1637007533486",
       alt: "A carefree person with no anxiety"
     },
-    link:
+    video:
       "https://www.healthyplace.com/blogs/survivingmentalhealthstigma/2017/09/clickbait-contributes-to-mental-health-stigma"
   }
 ) => {
@@ -35,10 +35,11 @@ const createArticle = (
   titleContainer.classList.add("title");
   titleContainer.appendChild(title);
 
-  const link = document.createElement("a");
+  const link = document.createElement("div");
   link.classList.add("article");
-  link.href = article.link;
-  link.target = "_blank";
+  link.dataset.video = article.link;
+  link.onClick = videoPopup(link);
+  
   link.appendChild(imageContainer);
   link.appendChild(titleContainer);
 
@@ -53,11 +54,22 @@ const setupArticles = () => {
   });
 };
 
-const videoPopup = () => {
-  const fade = document.createElement('div');
-  fade.classList.add('hover-top', 'transparent-gray')
-  
-  document.body.appendChild(fade);
-}
+const videoPopup = clicked => {
+  const fade = document.createElement("div");
+  fade.classList.add("hover-top", "transparent-gray", "center-inside");
 
-videoPopup();
+  fade.innerHTML = (`
+    <iframe
+      width="560"
+      height="315"
+      src="${clicked.dataset.video}"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  `);
+
+
+  document.body.appendChild(fade);
+};
