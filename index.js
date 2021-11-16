@@ -26,10 +26,8 @@ const createArticle = (
 ) => {
   /* DOM TREE
   div.article
-  │
   ├── div.image-container
   │   └── img
-  │  
   └── div.title
       └── p
   */
@@ -81,10 +79,9 @@ const setupArticles = () => {
 const videoPopup = clicked => {
   /* DOM TREE
   div.hover-top.transparent-gray.center#filter
-  │
   └── div.center.flex-column.center
-       ├── iframe.margin-10
-       └── a.box.padding-10.main-color.decoration-none.corner-radius-10
+      ├── iframe.margin-10
+      └── a.box.padding-10.main-color.decoration-none.corner-radius-10
   */
   const fade = document.createElement("div");
   fade.classList.add("hover-top", "transparent-gray", "center");
