@@ -109,6 +109,7 @@ const videoPopup = clicked => {
   `;
 
   const linkToArticle = document.createElement("a");
+  
   linkToArticle.classList.add("box", "padding-10", "main-color", "decoration-none");
   linkToArticle.href = clicked.target.dataset.article;
   linkToArticle.target = "_blank";
