@@ -82,9 +82,9 @@ const videoPopup = clicked => {
   /* DOM TREE
   div.hover-top.transparent-gray.center#filter
   │
-  └── div 
+  └── div.center.flex-column.center
        ├── iframe.margin-10
-       └── a.box.padding-10.main-color.decoration-none
+       └── a.box.padding-10.main-color.decoration-none.corner-radius-10
   */
   const fade = document.createElement("div");
   fade.classList.add("hover-top", "transparent-gray", "center");
@@ -110,7 +110,7 @@ const videoPopup = clicked => {
 
   const linkToArticle = document.createElement("a");
   
-  linkToArticle.classList.add("box", "padding-10", "main-color", "decoration-none");
+  linkToArticle.classList.add("box", "padding-10", "main-color", "decoration-none", "corner-radius-10");
   linkToArticle.href = clicked.target.dataset.article;
   linkToArticle.target = "_blank";
   linkToArticle.innerText = "Read Article";
@@ -123,8 +123,9 @@ const videoPopup = clicked => {
 
 // removes an element when added as an onClick
 const removeSelf = clicked => {
-  console.log(clicked.target);
-  clicked.target.remove();
+  if (clicked.target.id === 'filter') {
+    clicked.target.remove();
+  }
 };
 
 // key handler for all key press events

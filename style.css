@@ -172,3 +172,7 @@ a:hover {
 .decoration-none {
   text-decoration: none;
 }
+
+.corner-radius-10 {
+  border-radius: 10px;
+}
