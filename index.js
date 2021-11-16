@@ -16,7 +16,7 @@ const createArticle = (
         "https://cdn.glitch.me/07486811-aee1-45d8-b7a9-be44fb8b03cc%2F0bb73b8a8afc4403b0bc6f24412d4569.png?v=1637007533486",
       alt: "A carefree person with no anxiety"
     },
-    l:
+    video:
       "https://www.healthyplace.com/blogs/survivingmentalhealthstigma/2017/09/clickbait-contributes-to-mental-health-stigma"
   }
 ) => {
@@ -34,8 +34,7 @@ const createArticle = (
   const titleContainer = document.createElement("div");
   titleContainer.classList.add("title");
   titleContainer.appendChild(title);
-
-  titleContainer.dataset.video = article.link;
+  titleContainer.dataset.video = article.video;
   titleContainer.onclick = videoPopup;
 
   const link = document.createElement("div");
@@ -56,10 +55,13 @@ const setupArticles = () => {
 };
 
 const videoPopup = clicked => {
-  console.log(clicked);
   const fade = document.createElement("div");
-  fade.classList.add("hover-top", "transparent-gray", "center-inside");
-  fade.id = 'filter';
+  fade.classList.add("hover-top", "transparent-gray", "center");
+  fade.setAttribute('id', 'filter')
+  fade.onclick = removeSelf;
+  
+  fade.appendChild(document.createElement('p').innerText = "click anywhere or press 'esc' to exit")
+  
   fade.innerHTML = `
     <iframe
       width="560"
@@ -71,10 +73,16 @@ const videoPopup = clicked => {
   document.body.appendChild(fade);
 };
 
-document.onkeyup = (action) => {
-  if (action.which === 111) {
+document.onkeyup = (e) => {
+  if (e.keyCode === 27) {
     if (document.getElementById('filter')) {
-      document.getElementById('filter').removeSelf();
+      console.log('removing');
+      document.getElementById('filter').remove();
     }
   }
 }
+
+const removeSelf = clicked => {
+  clicked.target.remove();
+}
+
