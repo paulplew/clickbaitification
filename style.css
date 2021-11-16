@@ -19,7 +19,7 @@ a {
 
 h1 {
   margin: 10px;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 400;
   font-family: "Playfair Display", serif;
   text-align: center
@@ -34,7 +34,7 @@ a:hover {
 }
 
 .cb-title {
-  font-size: 2rem !important;
+  font-size: 4rem !important;
   display: block;
   width: 100%;
 }
@@ -45,6 +45,7 @@ a:hover {
   
   padding: 10px;
   background-color: var(--light-color);
+  b
   position: sticky;
   z-index: 99;
   overflow: hidden;
