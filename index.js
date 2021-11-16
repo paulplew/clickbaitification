@@ -82,18 +82,20 @@ const videoPopup = clicked => {
   /* DOM TREE
   div.hover-top.transparent-gray.center#filter
   │
-  ├── iframe
-  │  
-  └── a.box.padding-10.main-color
+  └── div 
+       ├── iframe.margin-10
+       └── a.box.padding-10.main-color.decoration-none
   */
   const fade = document.createElement("div");
-  fade.classList.add("hover-top", "transparent-gray", "center", "flex-column");
+  fade.classList.add("hover-top", "transparent-gray", "center");
   fade.setAttribute("id", "filter");
-
+  
   // when user clicks anywhere not in the iframe remove the element
   fade.onclick = removeSelf;
-
-  fade.innerHTML = `
+  
+  const content = document.createElement('div');
+  content.classList.add("center", "flex-column");
+  content.innerHTML = `
     <iframe
       width="560"
       height="315"
@@ -101,21 +103,26 @@ const videoPopup = clicked => {
       title="YouTube video player" 
       frameborder="0" 
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen>
+      allowfullscreen
+      class="margin-b-10">
     </iframe>
   `;
 
   const linkToArticle = document.createElement("a");
-  linkToArticle.classList.add("box", "padding-10", "main-color");
+  linkToArticle.classList.add("box", "padding-10", "main-color", "decoration-none");
   linkToArticle.href = clicked.target.dataset.article;
   linkToArticle.target = "_blank";
   linkToArticle.innerText = "Read Article";
   
+  
+  content.appendChild(linkToArticle);
+  fade.appendChild(content);
   document.body.appendChild(fade);
 };
 
 // removes an element when added as an onClick
 const removeSelf = clicked => {
+  console.log(clicked.target);
   clicked.target.remove();
 };
 

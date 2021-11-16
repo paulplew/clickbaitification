@@ -11,9 +11,7 @@ html {
   font-family: "Roboto", sans-serif;
 }
 
-
 a {
-
   color: var(--dark-color);
 }
 
@@ -63,7 +61,7 @@ a:hover {
 
 .nav-link {
   padding: 10px;
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .nav-link.selected {
@@ -122,17 +120,17 @@ a:hover {
   object-fit: cover;
 }
 
-.highlight { 
+.highlight {
   color: var(--highlight-color);
 }
 
 .center {
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
-.italic { 
+.italic {
   font-style: italic;
 }
 
@@ -159,10 +157,18 @@ a:hover {
   height: 25px;
 }
 
+.margin-b-10 {
+  margin-bottom: 10px;
+}
+
 .padding-10 {
   padding: 10px;
 }
 
 .main-color {
-  background-color: var(--highlight-color);
+  background-color: var(--light-color);
+}
+
+.decoration-none {
+  text-decoration: none;
 }
